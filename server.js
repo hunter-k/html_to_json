@@ -7,10 +7,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 var incomingData;
 
-function sendItBack (result) {
+function sendItBack () {
 	app.get('/output', function (req, res) {
-		res.send(result);
-		console.log(result);
+		res.send(incomingData);
 	})
 }
 
@@ -18,7 +17,7 @@ app.post('/input', function(req, res) {
 	var body = req.body;
 	incomingData = body.htmlText;
 	incomingData = converter.converterFunc(incomingData);
-	sendItBack(incomingData);
+	sendItBack();
 	res.send("INSERTED");
 });
 

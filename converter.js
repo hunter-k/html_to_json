@@ -15,11 +15,13 @@ function converter (str) {
 		if (strArr[i]  === "s" && strArr[i + 1]  === "t" && strArr[i + 2]  === "a" && strArr[i + 3]  === "t" && strArr[i + 4]  === "e") {
 			var newWord = "";
 			for (var y = i + 7; ;y++) {
-				console.log(strArr[y]);
 				if (strArr[y] === "<" || strArr[y] === "\n") {break;}
 				newWord += strArr[y];
 			}
 			newWord.trim();
+			if(newWord.charAt(newWord.length - 1) === " ") {
+				newWord = newWord.substring(0, newWord.length - 2);
+			}
 			newObj.state = newWord;
 			output.push(newObj);
 			newObj = {};
