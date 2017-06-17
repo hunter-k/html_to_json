@@ -5,18 +5,25 @@ var converter = require('./converter');
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
+//variable to hold incoming data
 var incomingData;
+//variable to hold outgoing data
+var outgoingData;
 
+//send outgoing data back to the browser
 function sendItBack () {
 	app.get('/output', function (req, res) {
-		res.send(incomingData);
+		res.send(outgoingData);
 	})
 }
 
+//receive incoming data
 app.post('/input', function(req, res) {
 	var body = req.body;
 	incomingData = body.htmlText;
-	incomingData = converter.converterFunc(incomingData);
+	//call the convereter function on the data
+	outgoingData = converter.converterFunc(incomingData);
+	//send data back to the browser
 	sendItBack();
 	res.send("INSERTED");
 });

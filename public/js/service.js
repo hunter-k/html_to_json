@@ -1,6 +1,7 @@
  var app = angular.module("htmlToJSON");
  app.service("nodeService", function($http) {
 
+  //retrieve data back from the server using /output 
   this.getJSONResult = function() {
     var items = [];
     var promise = $http({
@@ -13,9 +14,9 @@
       console.log('error');
     });
     return promise;
-        // TODO Make the HTTP request to the server and return a promise.
       };
 
+      //send html page to server using /intput
       this.sendHTML = function(item) {
         console.log("server = " + item.htmlText);
         var promise = $http({
@@ -31,6 +32,5 @@
         });
         return promise;
 
-        // TODO Make the HTTP request to the server and return a promise.
       };
     });
