@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HTML to JSON</title>
+
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="htmlToJSON">
+	<div ng-controller="mainController" class="row">
+
+		<div class="container col-xs-6">
+			<h2>Enter HTML</h2>
+
+			<form ng-submit="sendInput(formItem)" class="well">
+				<div class="form-group">
+					<label for="product-name">HTML</label>
+					<textarea class="form-control" id="html-text" required ng-model="formItem.htmlText"> </textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Convert to JSON</button>
+			</form>
+		</div>
+
+		<div class="col-xs-6">
+		<h1>{{results}}</h1>
+		</div>
+
+
+		<script src="lib/angular.min.js" charset="utf-8"></script>
+		<script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script>
+		<!-- Our Scripts -->
+		<script src="js/app.js" charset="utf-8"></script>
+		<script src="js/controller.js" charset="utf-8"></script>
+		<script src="js/service.js" charset="utf-8"></script>
+	</body>
+	</html>
